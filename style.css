@@ -10,4 +10,111 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
+  background-color: black;
+  color: white;
+  font-family: monospace, sans-serif;
 }
+
+/* header start */
+
+header {
+  width: 100%;
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  user-select: none;
+}
+
+.git {
+  color: orange;
+}
+
+ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+
+.nav-a {
+  position: relative;
+}
+
+.nav-a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: orange;
+  transition: width 0.3s ease;
+}
+
+.nav-a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  header {
+    position: relative;
+    z-index: 10;
+  }
+
+  .menu-btn {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 11;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    transition: right 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .nav-a {
+    font-size: 1.5rem;
+  }
+}
+
+/* header end */
